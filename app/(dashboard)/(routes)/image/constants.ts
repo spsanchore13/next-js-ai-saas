@@ -21,10 +21,6 @@ export const amountOptions = [
     {
         value: "5",
         label: "5 Photos"
-    },
-    {
-        value: "10",
-        label: "10 Photos"
     }
 ]
 
