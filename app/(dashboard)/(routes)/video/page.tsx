@@ -15,6 +15,7 @@ import { useState } from "react";
 
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 const VideoPage = () => {
   const proModal = useProModal();
