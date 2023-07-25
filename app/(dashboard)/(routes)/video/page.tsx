@@ -17,6 +17,7 @@ import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 
 const VideoPage = () => {
+  const proModal = useProModal();
   const router = useRouter();
 
   const [video, setVideo] = useState<string>();
@@ -41,8 +42,7 @@ const VideoPage = () => {
 
       form.reset();
     } catch (error: any) {
-      // TODO: Open Pro Model
-      console.log(error);
+      if (error?.response?.status === 403) proModal.onOpen();
     } finally {
       router.refresh();
     }
