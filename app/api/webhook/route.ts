@@ -16,12 +16,18 @@ export async function POST(req: Request) {
         return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 })
     }
 
+    console.log("HI")
+
     const session = event.data.object as Stripe.Checkout.Session;
+
+    console.log("HELLO")
 
     if (event.type === 'checkout.session.completed') {
         const subscription = await stripe.subscriptions.retrieve(
             session.subscription as string
         )
+
+        console.log("SUBSCRIPTION", subscription)
 
         if (!session?.metadata?.userId) {
             return new NextResponse("User id is required", { status: 400 })
